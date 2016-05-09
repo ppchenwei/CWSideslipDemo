@@ -37,8 +37,6 @@
     // Do any additional setup after loading the view.
     UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleOfPanGestureRecognizer:)];
     [self.view addGestureRecognizer:panGestureRecognizer];
-    
-    NSLog(@"class : %@", NSStringFromClass([self.view class]));
 }
 
 - (void)didReceiveMemoryWarning {
