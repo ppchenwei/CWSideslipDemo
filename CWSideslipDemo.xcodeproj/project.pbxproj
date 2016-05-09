@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F10CE771CE07BC200B7E71A /* CWSideslipControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F10CE761CE07BC200B7E71A /* CWSideslipControl.m */; };
+		1F10CE7A1CE08A2F00B7E71A /* BaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F10CE791CE08A2F00B7E71A /* BaseNavigationViewController.m */; };
 		1F5312881CDC6E9100BB09E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5312871CDC6E9100BB09E6 /* main.m */; };
 		1F53128B1CDC6E9100BB09E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F53128A1CDC6E9100BB09E6 /* AppDelegate.m */; };
 		1F53128E1CDC6E9100BB09E6 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F53128D1CDC6E9100BB09E6 /* FirstViewController.m */; };
@@ -14,10 +16,13 @@
 		1F5312941CDC6E9100BB09E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F5312921CDC6E9100BB09E6 /* Main.storyboard */; };
 		1F5312961CDC6E9100BB09E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F5312951CDC6E9100BB09E6 /* Assets.xcassets */; };
 		1F5312991CDC6E9100BB09E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F5312971CDC6E9100BB09E6 /* LaunchScreen.storyboard */; };
-		1F5312A51CDC6FDE00BB09E6 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5312A41CDC6FDE00BB09E6 /* TabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F10CE751CE07BC200B7E71A /* CWSideslipControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWSideslipControl.h; sourceTree = "<group>"; };
+		1F10CE761CE07BC200B7E71A /* CWSideslipControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWSideslipControl.m; sourceTree = "<group>"; };
+		1F10CE781CE08A2F00B7E71A /* BaseNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationViewController.h; sourceTree = "<group>"; };
+		1F10CE791CE08A2F00B7E71A /* BaseNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationViewController.m; sourceTree = "<group>"; };
 		1F5312831CDC6E9100BB09E6 /* CWSideslipDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CWSideslipDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F5312871CDC6E9100BB09E6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1F5312891CDC6E9100BB09E6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -30,8 +35,6 @@
 		1F5312951CDC6E9100BB09E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F5312981CDC6E9100BB09E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F53129A1CDC6E9100BB09E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1F5312A31CDC6FDE00BB09E6 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
-		1F5312A41CDC6FDE00BB09E6 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +69,10 @@
 			children = (
 				1F5312891CDC6E9100BB09E6 /* AppDelegate.h */,
 				1F53128A1CDC6E9100BB09E6 /* AppDelegate.m */,
-				1F5312A31CDC6FDE00BB09E6 /* TabBarController.h */,
-				1F5312A41CDC6FDE00BB09E6 /* TabBarController.m */,
+				1F10CE751CE07BC200B7E71A /* CWSideslipControl.h */,
+				1F10CE761CE07BC200B7E71A /* CWSideslipControl.m */,
+				1F10CE781CE08A2F00B7E71A /* BaseNavigationViewController.h */,
+				1F10CE791CE08A2F00B7E71A /* BaseNavigationViewController.m */,
 				1F53128C1CDC6E9100BB09E6 /* FirstViewController.h */,
 				1F53128D1CDC6E9100BB09E6 /* FirstViewController.m */,
 				1F53128F1CDC6E9100BB09E6 /* SecondViewController.h */,
@@ -160,8 +165,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F5312911CDC6E9100BB09E6 /* SecondViewController.m in Sources */,
+				1F10CE7A1CE08A2F00B7E71A /* BaseNavigationViewController.m in Sources */,
 				1F53128B1CDC6E9100BB09E6 /* AppDelegate.m in Sources */,
-				1F5312A51CDC6FDE00BB09E6 /* TabBarController.m in Sources */,
+				1F10CE771CE07BC200B7E71A /* CWSideslipControl.m in Sources */,
 				1F53128E1CDC6E9100BB09E6 /* FirstViewController.m in Sources */,
 				1F5312881CDC6E9100BB09E6 /* main.m in Sources */,
 			);
@@ -312,6 +318,7 @@
 				1F53129F1CDC6E9100BB09E6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

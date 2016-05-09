@@ -49,7 +49,7 @@
         <!--first-->
         <scene sceneID="pPA-kc-2QV">
             <objects>
-                <navigationController id="dIT-8i-sla" sceneMemberID="viewController">
+                <navigationController id="dIT-8i-sla" customClass="BaseNavigationViewController" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="first" image="first" id="Mne-tu-c5v"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="I2d-Hg-UBw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -165,7 +165,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" customClass="TabBarController" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
