@@ -19,7 +19,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-   
+    UIView *slipView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1000, 1000)];
+    slipView.backgroundColor = [UIColor redColor];
+    
+    [[CWSideslipControl shareInstance] addSideView:slipView toViewController:self.tabBarController];
 }
 
 - (void)didReceiveMemoryWarning {

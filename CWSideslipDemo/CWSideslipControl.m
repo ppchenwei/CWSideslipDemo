@@ -11,6 +11,8 @@
 #define BACKBUTTONTAG              2006
 #define GESTURERECOGNIZERSPACE     30
 
+static CWSideslipControl *sideslipControl;
+
 @implementation UIView (Frame)
 
 - (void)setX:(CGFloat )originX
@@ -33,37 +35,65 @@
 
 @property (strong, nonatomic)UIViewController *viewController;
 
+@property (strong, nonatomic)UIPanGestureRecognizer *panGestureRecognizer;
+
 @end
 
 @implementation CWSideslipControl
 @synthesize slipView = __slipView;
 
+#pragma mark -------单例模式------------
 + (instancetype)shareInstance
 {
-    static CWSideslipControl *sideslipControl;
+    return [[self alloc] init];
+}
+
++(instancetype)allocWithZone:(struct _NSZone *)zone
+{
+    
     @synchronized (self)
     {
         if (!sideslipControl)
         {
-            sideslipControl = [[CWSideslipControl alloc] init];
+            sideslipControl = [super allocWithZone: zone];
         }
     }
+    
     return sideslipControl;
 }
 
+- (id)copyWithZone:(struct _NSZone *)zone
+{
+    return sideslipControl;
+}
+
+- (id)mutableCopyWithZone:(struct _NSZone *)zone
+{
+    return sideslipControl;
+}
+#pragma mark ------初始化视图和控制器----------
 - (void)addSideView:(UIView *)sideView   toViewController:(UIViewController *)viewController
 {
     if (sideView && viewController)
     {
-        self.slipView = sideView;
+        //初始化属性
+        [self initProperrtys];
         
+        self.slipView = sideView;
         self.viewController = viewController;
         //添加手势监控
-        UIPanGestureRecognizer *panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleOfPanGestureRecognizer:)];
-        [self.viewController.view addGestureRecognizer:panGestureRecognizer];
+        [self.viewController.view addGestureRecognizer:self.panGestureRecognizer];
     }
 }
 
+- (void)initProperrtys
+{
+    [self.slipView removeFromSuperview];
+    self.slipView = nil;
+    [self.viewController.view removeGestureRecognizer:self.panGestureRecognizer];
+    self.viewController = nil;
+}
+#pragma mark ----------手势处理响应---------
 - (void)handleOfPanGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
 {
     CGPoint pointView = [gestureRecognizer locationInView:self.viewController.view];
@@ -103,6 +133,7 @@
     }
 }
 
+#pragma mark ---------视图位移处理--------------
 - (void)moveToMinWithAnimation:(BOOL)animation
 {
     if (self.viewController.view.frame.origin.x == 0) return;
@@ -151,10 +182,10 @@
     [self moveToMinWithAnimation:YES];
 }
 
-
+#pragma mark -------属性自定义set get方法----------
 - (UIView *)slipView
 {
-    if (![__slipView.superview isKindOfClass:[UIWindow class]])
+    if (__slipView && ![__slipView.superview isKindOfClass:[UIWindow class]])
     {
         [self.viewController.view.window addSubview:__slipView];
     }
@@ -171,5 +202,14 @@
     if (frame.size.height > screenFrame.size.height)  frame.size.height = screenFrame.size.height;
     
     __slipView.frame = CGRectMake(-frame.size.width, (screenFrame.size.height - frame.size.height) / 2, frame.size.width, frame.size.height);
+}
+
+- (UIPanGestureRecognizer *)panGestureRecognizer
+{
+    if (!_panGestureRecognizer)
+    {
+         _panGestureRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleOfPanGestureRecognizer:)];
+    }
+    return _panGestureRecognizer;
 }
 @end

@@ -23,6 +23,7 @@
     slipView.backgroundColor = [UIColor yellowColor];
     
     [[CWSideslipControl shareInstance] addSideView:slipView toViewController:self];
+    
 }
 
 - (void)didReceiveMemoryWarning {

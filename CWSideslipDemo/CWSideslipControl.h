@@ -12,6 +12,7 @@
 
 
 + (instancetype)shareInstance;
+
 /**
  *  添加侧滑的视图到tabbarController中去
  *
