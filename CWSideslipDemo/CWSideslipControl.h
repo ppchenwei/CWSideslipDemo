@@ -21,4 +21,22 @@
  */
 - (void)addSideView:(UIView *)sideView   toViewController:(UIViewController *)viewController;
 
+/**
+ *  回收侧滑菜单
+ *
+ *  @param animation 是否需要动画
+ */
+- (void)moveToMinWithAnimation:(BOOL)animation;
+
+/**
+ *  弹开侧滑菜单
+ *
+ *  @param animation 是否需要动画
+ */
+- (void)moveToMaxWithAnimation:(BOOL)animation;
+
+/**
+ *  是否可以移动弹出侧滑菜单,默认为YES
+ */
+@property (assign, nonatomic) BOOL canMove;
 @end

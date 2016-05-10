@@ -8,6 +8,7 @@
 
 #import "BaseNavigationViewController.h"
 #import "CWSideslipControl.h"
+#import "CWSideViewController.h"
 
 @interface BaseNavigationViewController ()
 
@@ -19,11 +20,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UIView *slipView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1000, 1000)];
-    slipView.backgroundColor = [UIColor yellowColor];
+    CWSideViewController *vc = [[CWSideViewController alloc] init];
     
-    [[CWSideslipControl shareInstance] addSideView:slipView toViewController:self];
+    [[CWSideslipControl shareInstance] addSideView:vc.view toViewController:self];
     
+    
+    self.navigationItem.title = @"first";
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"弹开侧滑菜单" style:UIBarButtonItemStyleDone target:self action:@selector(onLeftBarButtonItem:)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,6 +34,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)onLeftBarButtonItem:(id)sender
+{
+    [[CWSideslipControl shareInstance] moveToMaxWithAnimation:YES];
+}
 /*
 #pragma mark - Navigation
 

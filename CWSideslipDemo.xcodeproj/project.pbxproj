@@ -16,6 +16,9 @@
 		1F5312941CDC6E9100BB09E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F5312921CDC6E9100BB09E6 /* Main.storyboard */; };
 		1F5312961CDC6E9100BB09E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F5312951CDC6E9100BB09E6 /* Assets.xcassets */; };
 		1F5312991CDC6E9100BB09E6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F5312971CDC6E9100BB09E6 /* LaunchScreen.storyboard */; };
+		1F5C4E861CE1CB0D00EC6BEC /* CWSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5C4E841CE1CB0D00EC6BEC /* CWSideViewController.m */; };
+		1F5C4E871CE1CB0D00EC6BEC /* CWSideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F5C4E851CE1CB0D00EC6BEC /* CWSideViewController.xib */; };
+		1F5C4E8A1CE1DCAF00EC6BEC /* PushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F5C4E891CE1DCAF00EC6BEC /* PushViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +38,11 @@
 		1F5312951CDC6E9100BB09E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F5312981CDC6E9100BB09E6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F53129A1CDC6E9100BB09E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F5C4E831CE1CB0D00EC6BEC /* CWSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWSideViewController.h; sourceTree = "<group>"; };
+		1F5C4E841CE1CB0D00EC6BEC /* CWSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWSideViewController.m; sourceTree = "<group>"; };
+		1F5C4E851CE1CB0D00EC6BEC /* CWSideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CWSideViewController.xib; sourceTree = "<group>"; };
+		1F5C4E881CE1DCAF00EC6BEC /* PushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushViewController.h; sourceTree = "<group>"; };
+		1F5C4E891CE1DCAF00EC6BEC /* PushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,10 +81,15 @@
 				1F10CE761CE07BC200B7E71A /* CWSideslipControl.m */,
 				1F10CE781CE08A2F00B7E71A /* BaseNavigationViewController.h */,
 				1F10CE791CE08A2F00B7E71A /* BaseNavigationViewController.m */,
+				1F5C4E881CE1DCAF00EC6BEC /* PushViewController.h */,
+				1F5C4E891CE1DCAF00EC6BEC /* PushViewController.m */,
 				1F53128C1CDC6E9100BB09E6 /* FirstViewController.h */,
 				1F53128D1CDC6E9100BB09E6 /* FirstViewController.m */,
 				1F53128F1CDC6E9100BB09E6 /* SecondViewController.h */,
 				1F5312901CDC6E9100BB09E6 /* SecondViewController.m */,
+				1F5C4E831CE1CB0D00EC6BEC /* CWSideViewController.h */,
+				1F5C4E841CE1CB0D00EC6BEC /* CWSideViewController.m */,
+				1F5C4E851CE1CB0D00EC6BEC /* CWSideViewController.xib */,
 				1F5312921CDC6E9100BB09E6 /* Main.storyboard */,
 				1F5312951CDC6E9100BB09E6 /* Assets.xcassets */,
 				1F5312971CDC6E9100BB09E6 /* LaunchScreen.storyboard */,
@@ -154,6 +167,7 @@
 				1F5312991CDC6E9100BB09E6 /* LaunchScreen.storyboard in Resources */,
 				1F5312961CDC6E9100BB09E6 /* Assets.xcassets in Resources */,
 				1F5312941CDC6E9100BB09E6 /* Main.storyboard in Resources */,
+				1F5C4E871CE1CB0D00EC6BEC /* CWSideViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,9 +180,11 @@
 			files = (
 				1F5312911CDC6E9100BB09E6 /* SecondViewController.m in Sources */,
 				1F10CE7A1CE08A2F00B7E71A /* BaseNavigationViewController.m in Sources */,
+				1F5C4E861CE1CB0D00EC6BEC /* CWSideViewController.m in Sources */,
 				1F53128B1CDC6E9100BB09E6 /* AppDelegate.m in Sources */,
 				1F10CE771CE07BC200B7E71A /* CWSideslipControl.m in Sources */,
 				1F53128E1CDC6E9100BB09E6 /* FirstViewController.m in Sources */,
+				1F5C4E8A1CE1DCAF00EC6BEC /* PushViewController.m in Sources */,
 				1F5312881CDC6E9100BB09E6 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

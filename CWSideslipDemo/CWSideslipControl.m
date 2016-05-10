@@ -9,7 +9,8 @@
 #import "CWSideslipControl.h"
 
 #define BACKBUTTONTAG              2006
-#define GESTURERECOGNIZERSPACE     30
+
+#define GESTURERECOGNIZERSPACE     68
 
 static CWSideslipControl *sideslipControl;
 
@@ -83,6 +84,15 @@ static CWSideslipControl *sideslipControl;
         self.viewController = viewController;
         //添加手势监控
         [self.viewController.view addGestureRecognizer:self.panGestureRecognizer];
+        
+        //添加边缘阴影
+       
+       
+        self.viewController.view.layer.shadowOffset = CGSizeMake(0, 0); //设置阴影的偏移量
+        self.viewController.view.layer.shadowRadius = 2.0;  //设置阴影的半径
+        self.viewController.view.layer.shadowColor = [UIColor blackColor].CGColor; //设置阴影的颜色为黑色
+        self.viewController.view.layer.shadowOpacity = 0.5; //设置阴影的不透明度
+        
     }
 }
 
@@ -92,10 +102,14 @@ static CWSideslipControl *sideslipControl;
     self.slipView = nil;
     [self.viewController.view removeGestureRecognizer:self.panGestureRecognizer];
     self.viewController = nil;
+    
+    self.canMove = YES;
 }
 #pragma mark ----------手势处理响应---------
 - (void)handleOfPanGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
 {
+    if (!self.canMove) return;
+    
     CGPoint pointView = [gestureRecognizer locationInView:self.viewController.view];
     CGPoint pointWindow = [gestureRecognizer locationInView:self.viewController.view.window];
     UIGestureRecognizerState state = gestureRecognizer.state;
@@ -145,14 +159,14 @@ static CWSideslipControl *sideslipControl;
     
     [UIView animateWithDuration:animation?0.2:0.0 animations:^{
         [self.viewController.view setX:0];
-        [self.slipView setX:-self.slipView.frame.size.width];
+        [self.slipView setX:-self.slipView.frame.size.width / 2];
     }];
 }
 
 - (void)moveToPointX:(CGFloat)pointX
 {
     [self.viewController.view setX:pointX];
-    [self.slipView setX:pointX - self.slipView.frame.size.width];
+    [self.slipView setX:pointX / 2 - self.slipView.frame.size.width / 2];
 }
 
 - (void)moveToMaxWithAnimation:(BOOL)animation
@@ -187,7 +201,7 @@ static CWSideslipControl *sideslipControl;
 {
     if (__slipView && ![__slipView.superview isKindOfClass:[UIWindow class]])
     {
-        [self.viewController.view.window addSubview:__slipView];
+        [self.viewController.view.window insertSubview:__slipView atIndex:0];
     }
     return __slipView;
 }
@@ -198,10 +212,10 @@ static CWSideslipControl *sideslipControl;
     __slipView = slipView;
     CGRect screenFrame = [UIScreen mainScreen].bounds;
     
-    if (frame.size.width > screenFrame.size.width)  frame.size.width = screenFrame.size.width - GESTURERECOGNIZERSPACE;
+    if (frame.size.width >= screenFrame.size.width)  frame.size.width = screenFrame.size.width - GESTURERECOGNIZERSPACE;
     if (frame.size.height > screenFrame.size.height)  frame.size.height = screenFrame.size.height;
     
-    __slipView.frame = CGRectMake(-frame.size.width, (screenFrame.size.height - frame.size.height) / 2, frame.size.width, frame.size.height);
+    __slipView.frame = CGRectMake(-frame.size.width / 2, (screenFrame.size.height - frame.size.height) / 2, frame.size.width, frame.size.height);
 }
 
 - (UIPanGestureRecognizer *)panGestureRecognizer

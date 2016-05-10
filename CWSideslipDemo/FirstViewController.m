@@ -8,6 +8,7 @@
 
 #import "FirstViewController.h"
 #import "CWSideslipControl.h"
+#import "CWSideViewController.h"
 
 @interface FirstViewController ()
 
@@ -19,10 +20,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    UIView *slipView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1000, 1000)];
-    slipView.backgroundColor = [UIColor redColor];
+    CWSideViewController *vc = [[CWSideViewController alloc] init];
     
-    [[CWSideslipControl shareInstance] addSideView:slipView toViewController:self.tabBarController];
+    [[CWSideslipControl shareInstance] addSideView:vc.view toViewController:self.tabBarController];
 }
 
 - (void)didReceiveMemoryWarning {

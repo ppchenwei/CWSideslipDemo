@@ -49,7 +49,7 @@
         <!--first-->
         <scene sceneID="pPA-kc-2QV">
             <objects>
-                <navigationController id="dIT-8i-sla" customClass="BaseNavigationViewController" sceneMemberID="viewController">
+                <navigationController id="dIT-8i-sla" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="first" image="first" id="Mne-tu-c5v"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="I2d-Hg-UBw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -63,10 +63,10 @@
             </objects>
             <point key="canvasLocation" x="750" y="-1095"/>
         </scene>
-        <!--View Controller-->
+        <!--Base Navigation View Controller-->
         <scene sceneID="4q2-YA-EV6">
             <objects>
-                <viewController id="I5c-cf-sSV" sceneMemberID="viewController">
+                <viewController id="I5c-cf-sSV" customClass="BaseNavigationViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KMz-6q-cTj"/>
                         <viewControllerLayoutGuide type="bottom" id="p4E-AT-Wc0"/>
@@ -103,10 +103,10 @@
             </objects>
             <point key="canvasLocation" x="1532" y="-1095"/>
         </scene>
-        <!--View Controller-->
+        <!--Push View Controller-->
         <scene sceneID="5U6-Tm-dKz">
             <objects>
-                <viewController id="SOQ-HL-dQZ" sceneMemberID="viewController">
+                <viewController id="SOQ-HL-dQZ" customClass="PushViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KxE-zF-T5g"/>
                         <viewControllerLayoutGuide type="bottom" id="7kX-3H-Luy"/>
