@@ -86,8 +86,6 @@ static CWSideslipControl *sideslipControl;
         [self.viewController.view addGestureRecognizer:self.panGestureRecognizer];
         
         //添加边缘阴影
-       
-       
         self.viewController.view.layer.shadowOffset = CGSizeMake(0, 0); //设置阴影的偏移量
         self.viewController.view.layer.shadowRadius = 2.0;  //设置阴影的半径
         self.viewController.view.layer.shadowColor = [UIColor blackColor].CGColor; //设置阴影的颜色为黑色
