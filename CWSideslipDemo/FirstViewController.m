@@ -30,4 +30,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[CWSideslipControl shareInstance] setSideslipEnable:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[CWSideslipControl shareInstance] setSideslipEnable:NO];
+}
+
 @end

@@ -29,6 +29,18 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"弹开侧滑菜单" style:UIBarButtonItemStyleDone target:self action:@selector(onLeftBarButtonItem:)];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [[CWSideslipControl shareInstance] setSideslipEnable:YES];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[CWSideslipControl shareInstance] setSideslipEnable:NO];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

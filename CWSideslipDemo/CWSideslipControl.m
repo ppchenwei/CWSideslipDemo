@@ -32,7 +32,7 @@ static CWSideslipControl *sideslipControl;
      BOOL _bMove;
 }
 
-@property (strong, nonatomic)UIView *slipView;
+@property (strong, nonatomic)UIView *sideView;
 
 @property (strong, nonatomic)UIViewController *viewController;
 
@@ -41,7 +41,7 @@ static CWSideslipControl *sideslipControl;
 @end
 
 @implementation CWSideslipControl
-@synthesize slipView = __slipView;
+@synthesize sideView = __sideView;
 
 #pragma mark -------单例模式------------
 + (instancetype)shareInstance
@@ -80,7 +80,7 @@ static CWSideslipControl *sideslipControl;
         //初始化属性
         [self initProperrtys];
         
-        self.slipView = sideView;
+        self.sideView = sideView;
         self.viewController = viewController;
         //添加手势监控
         [self.viewController.view addGestureRecognizer:self.panGestureRecognizer];
@@ -96,14 +96,18 @@ static CWSideslipControl *sideslipControl;
 
 - (void)initProperrtys
 {
-    [self.slipView removeFromSuperview];
-    self.slipView = nil;
+    [self.sideView removeFromSuperview];
+    self.sideView = nil;
     [self.viewController.view removeGestureRecognizer:self.panGestureRecognizer];
     self.viewController = nil;
+    
+    self.sideslipEnable = NO;
 }
 #pragma mark ----------手势处理响应---------
 - (void)handleOfPanGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
 {
+    if (!self.sideslipEnable) return;
+    
     CGPoint pointView = [gestureRecognizer locationInView:self.viewController.view];
     CGPoint pointWindow = [gestureRecognizer locationInView:self.viewController.view.window];
     UIGestureRecognizerState state = gestureRecognizer.state;
@@ -117,7 +121,7 @@ static CWSideslipControl *sideslipControl;
     {
         if ( !_bMove) return;
         
-        if (pointWindow.x <= self.slipView.frame.size.width )
+        if (pointWindow.x <= self.sideView.frame.size.width )
         {
             [self moveToPointX:pointWindow.x];
         }
@@ -130,7 +134,7 @@ static CWSideslipControl *sideslipControl;
     {
         if ( !_bMove) return;
         
-        if (self.viewController.view.frame.origin.x > self.slipView.frame.size.width / 2)
+        if (self.viewController.view.frame.origin.x > self.sideView.frame.size.width / 2)
         {
             [self moveToMaxWithAnimation:YES];
         }
@@ -153,19 +157,19 @@ static CWSideslipControl *sideslipControl;
     
     [UIView animateWithDuration:animation?0.2:0.0 animations:^{
         [self.viewController.view setX:0];
-        [self.slipView setX:-self.slipView.frame.size.width / 2];
+        [self.sideView setX:-self.sideView.frame.size.width / 2];
     }];
 }
 
 - (void)moveToPointX:(CGFloat)pointX
 {
     [self.viewController.view setX:pointX];
-    [self.slipView setX:pointX / 2 - self.slipView.frame.size.width / 2];
+    [self.sideView setX:pointX / 2 - self.sideView.frame.size.width / 2];
 }
 
 - (void)moveToMaxWithAnimation:(BOOL)animation
 {
-    if (self.slipView.frame.origin.x == 0) return;
+    if (self.sideView.frame.origin.x == 0) return;
     
     if (![self.viewController.view viewWithTag:BACKBUTTONTAG])
     {
@@ -178,8 +182,8 @@ static CWSideslipControl *sideslipControl;
     
     
     [UIView animateWithDuration:animation?0.2:0.0 animations:^{
-        [self.viewController.view setX:self.slipView.frame.size.width];
-        [self.slipView setX:0];
+        [self.viewController.view setX:self.sideView.frame.size.width];
+        [self.sideView setX:0];
     }];
 }
 
@@ -191,25 +195,25 @@ static CWSideslipControl *sideslipControl;
 }
 
 #pragma mark -------属性自定义set get方法----------
-- (UIView *)slipView
+- (UIView *)sideView
 {
-    if (__slipView && ![__slipView.superview isKindOfClass:[UIWindow class]])
+    if (__sideView && ![__sideView.superview isKindOfClass:[UIWindow class]])
     {
-        [self.viewController.view.window insertSubview:__slipView atIndex:0];
+        [self.viewController.view.window insertSubview:__sideView atIndex:0];
     }
-    return __slipView;
+    return __sideView;
 }
 
-- (void)setSlipView:(UIView *)slipView
+- (void)setSideView:(UIView *)sideView
 {
-    CGRect frame = slipView.frame;
-    __slipView = slipView;
+    CGRect frame = sideView.frame;
+    __sideView = sideView;
     CGRect screenFrame = [UIScreen mainScreen].bounds;
     
     if (frame.size.width >= screenFrame.size.width)  frame.size.width = screenFrame.size.width - GESTURERECOGNIZERSPACE;
     if (frame.size.height > screenFrame.size.height)  frame.size.height = screenFrame.size.height;
     
-    __slipView.frame = CGRectMake(-frame.size.width / 2, (screenFrame.size.height - frame.size.height) / 2, frame.size.width, frame.size.height);
+    __sideView.frame = CGRectMake(-frame.size.width / 2, (screenFrame.size.height - frame.size.height) / 2, frame.size.width, frame.size.height);
 }
 
 - (UIPanGestureRecognizer *)panGestureRecognizer

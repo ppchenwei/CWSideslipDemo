@@ -37,6 +37,8 @@
  */
 - (void)moveToMaxWithAnimation:(BOOL)animation;
 
-
-
+/**
+ *  是否可以侧滑,默认为NO。
+ */
+@property (assign, nonatomic) BOOL sideslipEnable;
 @end
