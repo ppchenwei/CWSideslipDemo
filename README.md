@@ -1,1 +1,1 @@
-主要的功能是:在tabbarcontroller上面加一个侧滑的菜单.
+仿QQ的侧滑效果

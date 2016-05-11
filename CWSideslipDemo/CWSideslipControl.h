@@ -10,7 +10,9 @@
 
 @interface CWSideslipControl : NSObject
 
-//提供一个全局的实例
+/**
+ *  提供一个全局的实例
+ */
 + (instancetype)shareInstance;
 
 /**
