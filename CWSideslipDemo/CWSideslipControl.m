@@ -100,14 +100,10 @@ static CWSideslipControl *sideslipControl;
     self.slipView = nil;
     [self.viewController.view removeGestureRecognizer:self.panGestureRecognizer];
     self.viewController = nil;
-    
-    self.canMove = YES;
 }
 #pragma mark ----------手势处理响应---------
 - (void)handleOfPanGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer
 {
-    if (!self.canMove) return;
-    
     CGPoint pointView = [gestureRecognizer locationInView:self.viewController.view];
     CGPoint pointWindow = [gestureRecognizer locationInView:self.viewController.view.window];
     UIGestureRecognizerState state = gestureRecognizer.state;

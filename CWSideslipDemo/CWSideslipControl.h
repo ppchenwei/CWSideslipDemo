@@ -10,33 +10,31 @@
 
 @interface CWSideslipControl : NSObject
 
-
+//提供一个全局的实例
 + (instancetype)shareInstance;
 
 /**
- *  添加侧滑的视图到tabbarController中去
+ *  添加侧滑的视图
  *
  *  @param sideView         侧滑的视图
- *  @param tabbarController 控制器
+ *  @param viewController   控制器
  */
 - (void)addSideView:(UIView *)sideView   toViewController:(UIViewController *)viewController;
 
 /**
- *  回收侧滑菜单
+ *  隐藏侧滑视图
  *
  *  @param animation 是否需要动画
  */
 - (void)moveToMinWithAnimation:(BOOL)animation;
 
 /**
- *  弹开侧滑菜单
+ *  弹出侧滑视图
  *
  *  @param animation 是否需要动画
  */
 - (void)moveToMaxWithAnimation:(BOOL)animation;
 
-/**
- *  是否可以移动弹出侧滑菜单,默认为YES
- */
-@property (assign, nonatomic) BOOL canMove;
+
+
 @end
